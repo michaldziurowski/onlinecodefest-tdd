@@ -1,5 +1,4 @@
-﻿using System;
-using CSharpClientSwissChess.Interfaces;
+﻿using CSharpClientSwissChess.Interfaces;
 
 namespace CSharpClientSwissChess
 {
@@ -14,9 +13,14 @@ namespace CSharpClientSwissChess
             _moveProvider = moveProvider;
         }
 
-        public void ValidateMove(string move)
+        public bool ValidateMove(string move)
         {
-            throw new NotImplementedException();
+            MoveParserResult moveParserResult;
+            _moveParser.TryParse(move, out moveParserResult);
+            
+            //TODO Check with move provider the possible moves
+
+            return true;
         }
     }
 }
