@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ChessMastaEngine.Obojetnie
 {
-    public class King
+    public class King: IPieceStrategy
     {
         private readonly PieceOnChessBoard _myPiece;
         private readonly List<PieceOnChessBoard> _takenFields;

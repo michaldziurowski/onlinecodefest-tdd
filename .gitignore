@@ -15,3 +15,6 @@ client-csharp/CSharpClient/obj
 /ChessMastaEngine.Obojetnie/.vs/ChessMastaEngine.Obojetnie/v14/.suo
 /ChessMastaEngine.Obojetnie/ChessMastaEngine.Objojetnie.Tests/bin/Debug
 /ChessMastaEngine.Obojetnie/ChessMastaEngine.Objojetnie.Tests/obj/Debug
+/ChessMastaEngine.Obojetnie/ChessMastaClient/bin/Debug
+/ChessMastaEngine.Obojetnie/ChessMastaClient/obj/Debug
+/ChessMastaEngine.Obojetnie/packages

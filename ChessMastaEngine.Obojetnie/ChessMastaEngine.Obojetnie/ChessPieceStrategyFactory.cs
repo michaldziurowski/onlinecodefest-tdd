@@ -4,9 +4,21 @@ namespace ChessMastaEngine.Obojetnie
 {
     public class ChessPieceStrategyFactory
     {
-        public King GetStrategy(string abbreviation, PieceOnChessBoard piece, List<PieceOnChessBoard> takenFields)
+        public IPieceStrategy GetStrategy(string abbreviation, PieceOnChessBoard piece, List<PieceOnChessBoard> takenFields)
         {
-            return new King(piece, takenFields);
+            switch (abbreviation)
+            {
+                case "K":
+                    return new King(piece, takenFields);
+                case "R":
+                    return new Rook(piece, takenFields);
+                case "B":
+                    return new Bishop(piece, takenFields);
+                case "P":
+                    return new Pawn(piece, takenFields);
+                default:
+                    return null;
+            }
         }
     }
 }

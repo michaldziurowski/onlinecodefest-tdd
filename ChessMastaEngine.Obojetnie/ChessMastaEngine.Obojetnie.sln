@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessMastaEngine.Obojetnie"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessMastaEngine.Objojetnie.Tests", "ChessMastaEngine.Objojetnie.Tests\ChessMastaEngine.Objojetnie.Tests.csproj", "{8878AE9E-2C59-4ABE-8A92-2FA6715D706D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessMastaClient", "ChessMastaClient\ChessMastaClient.csproj", "{84545CFE-0BF2-4A09-81CA-F77AAC139C0E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{8878AE9E-2C59-4ABE-8A92-2FA6715D706D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8878AE9E-2C59-4ABE-8A92-2FA6715D706D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8878AE9E-2C59-4ABE-8A92-2FA6715D706D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84545CFE-0BF2-4A09-81CA-F77AAC139C0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84545CFE-0BF2-4A09-81CA-F77AAC139C0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84545CFE-0BF2-4A09-81CA-F77AAC139C0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84545CFE-0BF2-4A09-81CA-F77AAC139C0E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

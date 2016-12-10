@@ -4,12 +4,14 @@ using System.Linq;
 
 namespace ChessMastaEngine.Obojetnie
 {
-    public class Bishop
+    public class Bishop : IPieceStrategy
     {
         private readonly PieceOnChessBoard _myPiece;
         private readonly List<PieceOnChessBoard> _takenFields;
 
-        public Bishop(PieceOnChessBoard myPiece) : this(myPiece, new List<PieceOnChessBoard>()){}
+        public Bishop(PieceOnChessBoard myPiece) : this(myPiece, new List<PieceOnChessBoard>())
+        {
+        }
 
         public Bishop(PieceOnChessBoard myPiece, List<PieceOnChessBoard> takenFields)
         {
@@ -21,7 +23,8 @@ namespace ChessMastaEngine.Obojetnie
         {
             var position = new Position(newPosition);
 
-            return Math.Abs(position.X - _myPiece.Position.X) == Math.Abs(position.Y - _myPiece.Position.Y) && !IsPieceOnPath();
+            return Math.Abs(position.X - _myPiece.Position.X) == Math.Abs(position.Y - _myPiece.Position.Y) &&
+                   !IsPieceOnPath();
         }
 
         private bool IsPieceOnPath()
@@ -32,7 +35,11 @@ namespace ChessMastaEngine.Obojetnie
             var idxVerticalOffset = 1;
             foreach (var boardAvailableLetter in boardAvailableLetters)
             {
-                if (_takenFields.Any(p => p.Position.X == boardAvailableLetter && p.Position.Y == _myPiece.Position.Y + idxVerticalOffset))
+                if (
+                    _takenFields.Any(
+                        p =>
+                            p.Position.X == boardAvailableLetter &&
+                            p.Position.Y == _myPiece.Position.Y + idxVerticalOffset))
                 {
                     isOnPath = true;
                 }
