@@ -1,4 +1,5 @@
-﻿using ChessMastaEngine.Obojetnie;
+﻿using System.Collections.Generic;
+using ChessMastaEngine.Obojetnie;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace ChessMastaEngine.Objojetnie.Tests
@@ -210,6 +211,24 @@ namespace ChessMastaEngine.Objojetnie.Tests
                     result = true;
                 }
             }
+
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void Bishop_MoveDiagonallyd5Tog8PieceOnPathf7_Incorrect()
+        {
+            List<PieceOnChessBoard> piecesOnBoard = new List<PieceOnChessBoard>
+            {
+                new PieceOnChessBoard
+                {
+                    Position =new Position("f7")
+                }
+            };
+
+            var bishop = new Bishop(_myPiece, piecesOnBoard);
+
+            var result = bishop.MoveTo("g8");
 
             Assert.IsFalse(result);
         }
