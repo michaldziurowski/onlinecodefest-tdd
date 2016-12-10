@@ -43,16 +43,33 @@ namespace ChessMastaEngine.Objojetnie.Tests
 
             Assert.IsTrue(result);
         }
-        
+
         [TestMethod]
-        public void Bishop_MoveOneFieldDiagonallyLeftDown_Correct()
+        public void Bishop_MoveNFieldsDiagonallyLeftDown_Correct()
         {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("c4");
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("h8")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = true;
+            var possibleMovesHorizontally = new[] { "g","f","e","d","c","b","a" };
+            var idxVertically = 7;
+
+            foreach (var possibleMoveHorizontally in possibleMovesHorizontally)
+            {
+                if (!bishop.MoveTo(possibleMoveHorizontally + idxVertically))
+                {
+                    result = false;
+                }
+
+                idxVertically--;
+            }
 
             Assert.IsTrue(result);
         }
-
+        
         [TestMethod]
         public void Bishop_MoveTwoFieldsDiagonallyLeftTop_Correct()
         {
