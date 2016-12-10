@@ -12,7 +12,7 @@ namespace BS.ChessMasta
             }
             else
             {
-                Console.WriteLine("Let the game begin");
+                Console.WriteLine("Let the game begin - swiss");
                 var serverUrl = args[0];
                 var client = new ChessMastaClient(serverUrl);
 
