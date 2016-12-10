@@ -10,3 +10,8 @@ client-csharp/ChessMastaConnector/obj
 client-csharp/CSharpClient/bin
 client-csharp/CSharpClient/obj
 
+/ChessMastaEngine.Obojetnie/ChessMastaEngine.Obojetnie/bin/Debug
+/ChessMastaEngine.Obojetnie/ChessMastaEngine.Obojetnie/obj/Debug
+/ChessMastaEngine.Obojetnie/.vs/ChessMastaEngine.Obojetnie/v14/.suo
+/ChessMastaEngine.Obojetnie/ChessMastaEngine.Objojetnie.Tests/bin/Debug
+/ChessMastaEngine.Obojetnie/ChessMastaEngine.Objojetnie.Tests/obj/Debug
