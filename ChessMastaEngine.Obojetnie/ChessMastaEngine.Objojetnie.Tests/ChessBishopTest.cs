@@ -123,37 +123,93 @@ namespace ChessMastaEngine.Objojetnie.Tests
         }
         
         [TestMethod]
-        public void Bishop_MoveOneFieldUpVertically_Incorrect()
+        public void Bishop_MoveNFieldUpVertically_Incorrect()
         {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("d6");
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("a1")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = false;
+            
+            for (var idxVerically = 2; idxVerically<=8;idxVerically++)
+            {
+                if (bishop.MoveTo("a" + idxVerically))
+                {
+                    result = true;
+                }
+            }
 
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void Bishop_MoveOneFieldDownVerically_Incorrect()
+        public void Bishop_MoveNFieldDownVerically_Incorrect()
         {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("d4");
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("a8")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = false;
+
+            for (var idxVerically = 7; idxVerically >= 1; idxVerically--)
+            {
+                if (bishop.MoveTo("a" + idxVerically))
+                {
+                    result = true;
+                }
+            }
 
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void Bishop_MoveOneFieldRightHorizontally_Incorrect()
+        public void Bishop_MoveNFieldsRightHorizontally_Incorrect()
         {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("e5");
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("a1")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = false;
+            var possibleMovesHorizontally = new[] { "b", "c", "d", "e", "f", "g", "h" };
+            
+
+            foreach (var possibleMoveHorizontally in possibleMovesHorizontally)
+            {
+                if (bishop.MoveTo(possibleMoveHorizontally + "1"))
+                {
+                    result = true;
+                }
+            }
 
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void Bishop_MoveOneFieldLeftHorizontally_Incorrect()
+        public void Bishop_MoveNFieldLeftHorizontally_Incorrect()
         {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("c5");
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("h1")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = false;
+            var possibleMovesHorizontally = new[] { "g", "f", "e", "d", "c", "b", "a" };
+
+
+            foreach (var possibleMoveHorizontally in possibleMovesHorizontally)
+            {
+                if (bishop.MoveTo(possibleMoveHorizontally + "1"))
+                {
+                    result = true;
+                }
+            }
 
             Assert.IsFalse(result);
         }
