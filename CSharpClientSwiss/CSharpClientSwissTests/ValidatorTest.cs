@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using CSharpClientSwissChess;
+﻿using CSharpClientSwissChess;
 using CSharpClientSwissChess.Interfaces;
 using Xunit;
 
@@ -9,7 +8,7 @@ namespace CSharpClientSwissTests
     {
         [Theory]
         [InlineData("wKa1-a2")]
-        public void Validate_Move(string value)
+        public void ValidateMove_Success(string value)
         {
             IMoveParser moveParser = new MoveParser();
             IMoveProvider moveProvider = new MoveProvider();

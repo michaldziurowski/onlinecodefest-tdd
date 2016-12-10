@@ -8,7 +8,7 @@ namespace CSharpClientSwissTests
     {
         [Theory]
         [InlineData("wK")]
-        public void CreateFigure_Success(string value)
+        public void CreateFigure_Returns_Initialized_Figure_Success(string value)
         {
             // Arrange
             Figure figure = new Figure(value);
