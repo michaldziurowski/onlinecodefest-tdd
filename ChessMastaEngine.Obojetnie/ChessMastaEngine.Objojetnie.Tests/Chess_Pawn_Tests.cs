@@ -318,5 +318,28 @@ namespace ChessMastaEngine.Objojetnie.Tests
 
             Assert.IsFalse(result);
         }
+
+        [TestMethod]
+        public void PawnWhite_Move3UpWithPieceInBetween_Incorrect()
+        {
+            List<PieceOnChessBoard> piecesOnBoard = new List<PieceOnChessBoard>
+            {
+                new PieceOnChessBoard
+                {
+                    Position =new Position("d3"),
+                    Color = Color.White
+                }
+            };
+
+            var rook = new Pawn(new PieceOnChessBoard
+            {
+                Position = new Position("d2"),
+                Color = Color.White
+            }, piecesOnBoard);
+
+            bool result = rook.MoveTo("d5");
+
+            Assert.IsFalse(result);
+        }
     }
 }
