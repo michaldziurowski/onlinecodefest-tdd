@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BEA20222-50A1-4F24-99DF-024A9539278A}</ProjectGuid>
+    <ProjectGuid>{5D7AD898-7A1D-4F5D-98F1-56183B224AEB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ChessMastaConnector</RootNamespace>
-    <AssemblyName>ChessMastaConnector</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>CSharpClientSwissChess</RootNamespace>
+    <AssemblyName>CSharpClientSwissChess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -30,36 +30,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EngineIoClientDotNet, Version=0.9.22.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\EngineIoClientDotNet.0.9.22\lib\net45\EngineIoClientDotNet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="SocketIoClientDotNet, Version=0.9.13.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\SocketIoClientDotNet.0.9.13\lib\net45\SocketIoClientDotNet.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WebSocket4Net, Version=0.14.1.0, Culture=neutral, PublicKeyToken=eb4e154b696bf72a, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebSocket4Net.0.14.1\lib\net45\WebSocket4Net.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChessMastaConnector.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="Figure.cs" />
+    <Compile Include="Interfaces\IFigure.cs" />
+    <Compile Include="Interfaces\IMove.cs" />
+    <Compile Include="Interfaces\IMoveParser.cs" />
+    <Compile Include="Interfaces\IMoveProvider.cs" />
+    <Compile Include="Interfaces\IMoveValidator.cs" />
+    <Compile Include="MoveParser.cs" />
+    <Compile Include="MoveParserResult.cs" />
+    <Compile Include="MoveProvider.cs" />
+    <Compile Include="MoveValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerMessage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
