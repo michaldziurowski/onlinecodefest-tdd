@@ -1,5 +1,5 @@
-﻿using System.Net.Sockets;
-using Quobject.SocketIoClientDotNet.Client;
+﻿using Quobject.SocketIoClientDotNet.Client;
+using Socket = Quobject.SocketIoClientDotNet.Client.Socket;
 
 namespace BS.ChessMasta
 {
