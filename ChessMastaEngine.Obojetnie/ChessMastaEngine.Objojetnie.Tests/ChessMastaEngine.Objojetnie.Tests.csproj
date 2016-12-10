@@ -55,6 +55,8 @@
     <Compile Include="ChessBishopTest.cs" />
     <Compile Include="ChessMastaEngineTest.cs" />
     <Compile Include="Chess_King_Test.cs" />
+    <Compile Include="Chess_Pawn_Tests.cs" />
+    <Compile Include="Chess_Rook_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ChessPieceStrategyFactoryTest.cs" />
   </ItemGroup>
