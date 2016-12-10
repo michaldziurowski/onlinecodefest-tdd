@@ -11,7 +11,7 @@ namespace CSharpClientSwissTests
         [InlineData("wKa1-a3")]
         [InlineData("bPb2-b4")]
         [InlineData("wRc4-c5")]
-        public void Parse_Move_Of_Figure_Input_Parsing_Success(string value)
+        public void TryParse_Parsing_Success(string value)
         {
             // Arrange 
             IMoveParser moveParser = new MoveParser();
@@ -28,7 +28,9 @@ namespace CSharpClientSwissTests
         [Theory]
         [InlineData("a782834127a01")]
         [InlineData("wKAa1-a1")]
-        public void Parse_Move_Of_Figure_Input_Parsing_Failure(string value)
+        [InlineData("zRc4-c5")] // There is no color 'z'
+        [InlineData("wAc4-c5")] // There is no figure 'A'
+        public void TryParse_Parsing_Failure(string value)
         {
             // Arrange 
             IMoveParser moveParser = new MoveParser();
@@ -46,7 +48,7 @@ namespace CSharpClientSwissTests
         [InlineData("wKa1-a3")]
         [InlineData("bPb2-b4")]
         [InlineData("wRc4-c5")]
-        public void Parse_Move_Of_Figure_Returns_Initialized_Result_Success(string value)
+        public void Parse_Returns_Initialized_Result_Success(string value)
         {
             // Arrange
             IMoveParser moveParser = new MoveParser();
@@ -61,7 +63,7 @@ namespace CSharpClientSwissTests
 
         [Theory]
         [InlineData("wKa1-a3")]
-        public void Parse_Move_Of_Figure_Returns_Concrete_Result_Success(string value)
+        public void Parse_Returns_Concrete_Result_Success(string value)
         {
             // Arrange
             IMoveParser moveParser = new MoveParser();
