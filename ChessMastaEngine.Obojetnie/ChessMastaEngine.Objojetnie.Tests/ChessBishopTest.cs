@@ -43,15 +43,6 @@ namespace ChessMastaEngine.Objojetnie.Tests
 
             Assert.IsTrue(result);
         }
-
-        [TestMethod]
-        public void Bishop_MoveOneFieldDiagonallyRightTop_Correct()
-        {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("e6");
-
-            Assert.IsTrue(result);
-        }
         
         [TestMethod]
         public void Bishop_MoveOneFieldDiagonallyLeftDown_Correct()
