@@ -69,25 +69,59 @@ namespace ChessMastaEngine.Objojetnie.Tests
 
             Assert.IsTrue(result);
         }
+
+        [TestMethod]
+        public void Bishop_MoveNFieldsDiagonallyLeftTop_Correct()
+        {
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("h1")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = true;
+            var possibleMovesHorizontally = new[] { "g", "f", "e", "d", "c", "b", "a" };
+            var idxVertically = 2;
+
+            foreach (var possibleMoveHorizontally in possibleMovesHorizontally)
+            {
+                if (!bishop.MoveTo(possibleMoveHorizontally + idxVertically))
+                {
+                    result = false;
+                }
+
+                idxVertically++;
+            }
+
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void Bishop_MoveNFieldsDiagonallyRightDown_Correct()
+        {
+            var piece = new PieceOnChessBoard
+            {
+                Position = new Position("a8")
+            };
+
+            var bishop = new Bishop(piece);
+            var result = true;
+            var possibleMovesHorizontally = new[] { "b", "c", "d", "e", "f", "g", "h" };
+            var idxVertically = 7;
+
+            foreach (var possibleMoveHorizontally in possibleMovesHorizontally)
+            {
+                if (!bishop.MoveTo(possibleMoveHorizontally + idxVertically))
+                {
+                    result = false;
+                }
+
+                idxVertically--;
+            }
+
+            Assert.IsTrue(result);
+        }
         
-        [TestMethod]
-        public void Bishop_MoveTwoFieldsDiagonallyLeftTop_Correct()
-        {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("b7");
-
-            Assert.IsTrue(result);
-        }
-
-        [TestMethod]
-        public void Bishop_MoveThreeFieldsDiagonallyRightDown_Correct()
-        {
-            var bishop = new Bishop(_myPiece);
-            var result = bishop.MoveTo("g2");
-
-            Assert.IsTrue(result);
-        }
-
         [TestMethod]
         public void Bishop_MoveOneFieldUpVertically_Incorrect()
         {
