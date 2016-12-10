@@ -1,4 +1,5 @@
-﻿using CSharpClientSwissChess.Interfaces;
+﻿using System.Linq;
+using CSharpClientSwissChess.Interfaces;
 
 namespace CSharpClientSwissChess
 {
@@ -20,9 +21,9 @@ namespace CSharpClientSwissChess
                 MoveParserResult moveParserResult;
                 if (_moveParser.TryParse(move, out moveParserResult))
                 {
-                    //TODO Check with move provider the possible moves
-
-                    return true;
+                    MoveProvider provider = new MoveProvider();
+                    var possibleMoves = provider.GetPossibleMoves(new Board(""), moveParserResult);
+                    return possibleMoves.Any(x => x.Equals(moveParserResult.Move.To)); 
                 }
                 return false;
             }

@@ -57,6 +57,7 @@
     <Compile Include="MoveParserResult.cs" />
     <Compile Include="MoveProvider.cs" />
     <Compile Include="MoveValidator.cs" />
+    <Compile Include="MoveVector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
