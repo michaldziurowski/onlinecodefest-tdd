@@ -1,0 +1,28 @@
+<template>
+    <require from="bootstrap/css/bootstrap.css"></require>
+    <link rel="stylesheet" href="css/styles.css">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div id="board1"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Move" value.bind="move">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" click.trigger="sendMove()">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="gamers">
+                <compose repeat.for="gamer of gamers" view-model.bind="gamer" view="gamer.html"></compose>
+            </div>
+        </div>
+    </div>
+</template>

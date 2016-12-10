@@ -1,0 +1,25 @@
+<template>
+    <require from="bootstrap/css/bootstrap.css"></require>
+    <div class="container">
+        <div class="jumbotron">
+            <div class="form-inline" show.bind="!initialized">
+                <input type="text" class="form-control" placeholder="Server Url" value.bind="serverUrl">
+                <input type="text" class="form-control" placeholder="Name" value.bind="name">
+
+                <button class="btn btn-default" type="button" click.trigger="init()">Register</button>
+
+            </div>
+            <div>
+                <div repeat.for="message of messages" class="alert alert-success" role="alert">
+                    Received ${message}
+                </div>
+            </div>
+            <div class="input-group" show.bind="initialized">
+                <input type="text" class="form-control" placeholder="Answer" value.bind="answer">
+                <span class="input-group-btn">
+        <button class="btn btn-default" type="button" click.trigger="sendAnswer()">Go!</button>
+      </span>
+            </div>
+        </div>
+    </div>
+</template>

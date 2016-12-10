@@ -1,0 +1,12 @@
+node_modules
+server/node_modules
+client-aurelia/node_modules
+server/jspm_packages
+client-aurelia/jspm_packages
+client-csharp/.vs
+client-csharp/packages
+client-csharp/ChessMastaConnector/bin
+client-csharp/ChessMastaConnector/obj
+client-csharp/CSharpClient/bin
+client-csharp/CSharpClient/obj
+
