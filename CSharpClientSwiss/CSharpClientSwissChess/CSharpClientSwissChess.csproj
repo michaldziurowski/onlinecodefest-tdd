@@ -51,6 +51,7 @@
     <Compile Include="Interfaces\IMoveParser.cs" />
     <Compile Include="Interfaces\IMoveProvider.cs" />
     <Compile Include="Interfaces\IMoveValidator.cs" />
+    <Compile Include="Move.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="MoveParserResult.cs" />
     <Compile Include="MoveProvider.cs" />

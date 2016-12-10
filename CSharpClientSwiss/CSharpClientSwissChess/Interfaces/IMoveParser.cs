@@ -2,7 +2,7 @@
 {
     public interface IMoveParser
     {
-        MoveParserResult Parse(string empty);
+        MoveParserResult Parse(string input);
 
         bool TryParse(string input, out MoveParserResult parseResult);
     }

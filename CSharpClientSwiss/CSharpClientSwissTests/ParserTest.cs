@@ -70,9 +70,9 @@ namespace CSharpClientSwissTests
             MoveParserResult moveParserResult = moveParser.Parse(value);
 
             // Assert
-            moveParserResult.Figure.Should().BeOfType<IFigure>();
+            moveParserResult.Figure.Should().BeOfType<Figure>();
             moveParserResult.Figure.Color.Should().Be('w');
-            moveParserResult.Move.Should().BeOfType<IMove>();
+            moveParserResult.Move.Should().BeOfType<Move>();
             moveParserResult.Move.From.Letter.Should().Be('a');
             moveParserResult.Move.From.Number.Should().Be(1);
             moveParserResult.Move.To.Letter.Should().Be('a');
