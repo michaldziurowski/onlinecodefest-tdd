@@ -136,7 +136,7 @@ namespace ChessMastaEngine.Objojetnie.Tests
         }
 
         [TestMethod]
-        public void ChessKing_DontChangePosition_Correct()
+        public void ChessKing_DontChangePosition_Incorrect()
         {
             var myPiece = new PieceOnChessBoard
             {
@@ -156,13 +156,13 @@ namespace ChessMastaEngine.Objojetnie.Tests
             {
                 new PieceOnChessBoard
                 {
-                    Position =new Position("e5"),
+                    Position =new Position("d5"),
                     Color = Color.White
                 }
             };
 
             var king = new King(_myPiece, piecesOnBoard);
-            bool result = king.MoveTo("e5");
+            bool result = king.MoveTo("d5");
 
             Assert.IsFalse(result);
         }
@@ -174,13 +174,13 @@ namespace ChessMastaEngine.Objojetnie.Tests
             {
                 new PieceOnChessBoard
                 {
-                    Position =new Position("e5"),
+                    Position =new Position("d5"),
                     Color = Color.Black
                 }
             };
 
             var king = new King(_myPiece, piecesOnBoard);
-            bool result = king.MoveTo("e5");
+            bool result = king.MoveTo("d5");
 
             Assert.IsTrue(result);
         }
@@ -199,7 +199,7 @@ namespace ChessMastaEngine.Objojetnie.Tests
             };
 
             var king = new King(_myPiece, piecesOnBoard);
-            bool result = king.MoveTo("d5");
+            bool result = king.MoveTo("d6");
 
             Assert.IsFalse(result);
         }
