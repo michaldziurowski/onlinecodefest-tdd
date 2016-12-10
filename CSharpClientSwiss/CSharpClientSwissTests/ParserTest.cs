@@ -28,6 +28,8 @@ namespace CSharpClientSwissTests
         [Theory]
         [InlineData("a782834127a01")]
         [InlineData("wKAa1-a1")]
+        [InlineData("zRc4-c5")] // There is no color 'z'
+        [InlineData("wAc4-c5")] // There is no figure 'A'
         public void TryParse_Parsing_Failure(string value)
         {
             // Arrange 
