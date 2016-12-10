@@ -1,6 +1,7 @@
 ﻿using CSharpClientSwissChess;
 using CSharpClientSwissChess.Interfaces;
 using FluentAssertions;
+using NSubstitute;
 using Xunit;
 
 namespace CSharpClientSwissTests
@@ -11,22 +12,32 @@ namespace CSharpClientSwissTests
         [InlineData("wKa1-a2")]
         public void Validate_Move_Success(string value)
         {
+            // Arrange
+            IMoveProvider moveProvider = Substitute.For<IMoveProvider>();
             IMoveParser moveParser = new MoveParser();
-            IMoveProvider moveProvider = new MoveProvider();
             IMoveValidator moveValidator = new MoveValidator(moveParser, moveProvider);
 
-            moveValidator.ValidateMove(value).Should().BeTrue();
+            // Act
+            bool result = moveValidator.ValidateMove(value);
+
+            // Assert
+            result.Should().BeTrue();
         }
         
         [Theory]
         [InlineData("asdfwKa1-a2")]
         public void Validate_Move_Failure(string value)
         {
-            IMoveParser moveParser = new MoveParser();
-            IMoveProvider moveProvider = new MoveProvider();
+            // Arrange
+            IMoveProvider moveProvider = Substitute.For<IMoveProvider>();
+            MoveParser moveParser = new MoveParser();
             IMoveValidator moveValidator = new MoveValidator(moveParser, moveProvider);
 
-            moveValidator.ValidateMove(value).Should().BeFalse();
+            // Act
+            bool result = moveValidator.ValidateMove(value);
+
+            // Assert
+            result.Should().BeFalse();
         }
     }
 }

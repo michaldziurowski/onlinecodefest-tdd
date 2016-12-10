@@ -19,7 +19,7 @@ namespace CSharpClientSwiss
         {
             _connector.Connect(name);
         }
-
+        
         private void OnRegistered(string board)
         {
             Console.WriteLine("Board received " + board);
