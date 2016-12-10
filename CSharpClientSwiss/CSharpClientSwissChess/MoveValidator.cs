@@ -15,12 +15,22 @@ namespace CSharpClientSwissChess
 
         public bool ValidateMove(string move)
         {
-            MoveParserResult moveParserResult;
-            _moveParser.TryParse(move, out moveParserResult);
-            
-            //TODO Check with move provider the possible moves
+            try
+            {
+                MoveParserResult moveParserResult;
+                if (_moveParser.TryParse(move, out moveParserResult))
+                {
+                    //TODO Check with move provider the possible moves
 
-            return true;
+                    return true;
+                }
+                return false;
+            }
+
+            catch
+            {
+                return false;
+            }
         }
     }
 }
