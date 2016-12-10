@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bishop.cs" />
+    <Compile Include="ChessMastaEngine.cs" />
+    <Compile Include="ChessPieceStrategyFactory.cs" />
     <Compile Include="King.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
