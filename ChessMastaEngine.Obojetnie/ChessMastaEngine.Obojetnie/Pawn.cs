@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ChessMastaEngine.Obojetnie.Extensions;
 
 namespace ChessMastaEngine.Obojetnie
 {
@@ -8,7 +9,9 @@ namespace ChessMastaEngine.Obojetnie
     {
         private readonly PieceOnChessBoard _myPiece;
         private readonly List<PieceOnChessBoard> _takenFields;
-        private int _defaultHorizontalPosition;
+        private readonly int _defaultHorizontalPosition;
+        private readonly int _allowedVerticallDifference;
+        private readonly int _allowedInitVerticallDifference;
 
         public Pawn(PieceOnChessBoard myPiece) : this(myPiece, new List<PieceOnChessBoard>()) { }
 
@@ -20,9 +23,13 @@ namespace ChessMastaEngine.Obojetnie
             {
                 case Color.Black:
                     _defaultHorizontalPosition = 7;
+                    _allowedVerticallDifference = -1;
+                    _allowedInitVerticallDifference = -2;
                     break;
                 case Color.White:
                     _defaultHorizontalPosition = 2;
+                    _allowedVerticallDifference = 1;
+                    _allowedInitVerticallDifference = 2;
                     break;
             }
         }
@@ -31,15 +38,23 @@ namespace ChessMastaEngine.Obojetnie
         {
             var newPosition = new Position(position);
             int horizontalDifference = (newPosition.X - _myPiece.Position.X);
-            int verticalDifference = (newPosition.Y - _myPiece.Position.Y);
 
-            return (_myPiece.Color == Color.Black 
-                        && ((_myPiece.Position.Y -1 == newPosition.Y) || (_myPiece.Position.Y - 2 == newPosition.Y && _myPiece.Position.Y == _defaultHorizontalPosition ))
-                        && (horizontalDifference == 0 ||  _takenFields.Any(p=>p.Color != _myPiece.Color && horizontalDifference == -1)))
-                || (_myPiece.Color == Color.White 
-                        && ((_myPiece.Position.Y + 1 == newPosition.Y) || (_myPiece.Position.Y + 2 == newPosition.Y && _myPiece.Position.Y == _defaultHorizontalPosition))
-                        && (horizontalDifference == 0 ||  _takenFields.Any(p => p.Color != _myPiece.Color && horizontalDifference == 1)))
-               ;
+            return ((_myPiece.Position.Y + _allowedVerticallDifference == newPosition.Y) 
+                    || (_myPiece.Position.Y + _allowedInitVerticallDifference == newPosition.Y && _myPiece.Position.Y == _defaultHorizontalPosition && NoPiecesBetween(newPosition)))
+                    && IsHorizontallChangeAllowed(horizontalDifference)
+                    && (!_takenFields.Any(p=>p.Position.X != newPosition.X && p.Position.Y != newPosition.Y && horizontalDifference == 0));
+        }
+
+        private bool NoPiecesBetween(Position newPosition)
+        {
+            return _takenFields.All(p => !p.Position.IsHorizontallyBetween(newPosition, _myPiece.Position) 
+                                      && !p.Position.IsVerticallyBetween(newPosition, _myPiece.Position));
+        }
+
+        private bool IsHorizontallChangeAllowed(int horizontalDifference)
+        {
+            return (horizontalDifference == 0 ||
+                    _takenFields.Any(p => p.Color != _myPiece.Color && Math.Abs(horizontalDifference) == 1));
         }
     }
 }
